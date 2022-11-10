@@ -1,4 +1,4 @@
-namespace granthum_api
+namespace granthum_api.Models
 {
     public class WeatherForecast
     {

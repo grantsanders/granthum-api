@@ -1,3 +1,4 @@
+using granthum_api.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace granthum_api.Controllers
