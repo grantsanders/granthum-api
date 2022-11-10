@@ -11,8 +11,7 @@
       "secretStore": "AzureKeyVault",
       "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.DocumentDB/databaseAccounts/granthum-db",
       "type": "cosmosdb.azure",
-      "connectionId": "ConnectionStrings:dbConnect",
-      "dynamicId": null
+      "connectionId": "ConnectionStrings:dbConnect"
     }
   }
 }
