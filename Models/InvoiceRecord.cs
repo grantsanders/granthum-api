@@ -4,8 +4,6 @@
     {
         public InvoiceRecord() { }
 
-        public int Id { get; set; }
-
         public bool importedSuccessfully { get; set; }
 
         public string name { get; set; }
