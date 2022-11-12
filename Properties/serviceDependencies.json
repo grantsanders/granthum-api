@@ -1,13 +1,12 @@
 {
   "dependencies": {
-    "secrets1": {
-      "type": "secrets",
-      "connectionId": "VaultUri",
-      "dynamicId": null
-    },
     "cosmosdb1": {
       "type": "cosmosdb",
       "connectionId": "ConnectionStrings:dbConnect"
+    },
+    "secrets1": {
+      "type": "secrets",
+      "connectionId": "VaultUri"
     }
   }
 }

@@ -2,12 +2,14 @@
 {
     public class InvoiceRecord
     {
-        public InvoiceRecord() { }
+        public InvoiceRecord() {
 
-        public bool importedSuccessfully { get; set; }
+        }
+        public string? Id { get; set; }
+        public bool ImportedSuccessfully { get; set; }
 
-        public string name { get; set; }
+        public string? Name { get; set; }
 
-        public DateTime time = DateTime.Now;
+        public string? time = DateTime.Now.ToString();
     }
 }

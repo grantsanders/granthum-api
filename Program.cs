@@ -1,6 +1,11 @@
 global using Microsoft.EntityFrameworkCore;
+global using granthum_api.Data;
 using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
+using System.Configuration;
+using Azure.Extensions.AspNetCore.Configuration.Secrets;
+using Microsoft.Extensions.Azure;
+using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +15,9 @@ builder.Configuration.AddAzureKeyVault(keyVaultEndpoint, new DefaultAzureCredent
 
 // Add services to the container.
 
+//builder.Services.AddCosmos<DataContext>();
 builder.Services.AddControllers();
+builder.Services.AddDbContext<DataContext>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
