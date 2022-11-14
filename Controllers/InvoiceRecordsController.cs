@@ -21,14 +21,14 @@ namespace granthum_api.Controllers
             _context = context;
         }
 
-        // GET: api/InvoiceRecords
+        // GET: /api/InvoiceRecords
         [HttpGet]
         public async Task<ActionResult<IEnumerable<InvoiceRecord>>> GetInvoiceRecords()
         {
             return await _context.InvoiceRecords.ToListAsync();
         }
 
-        // GET: api/InvoiceRecords/5
+        // GET: /api/InvoiceRecords/5
         [HttpGet("{id}")]
         public async Task<ActionResult<InvoiceRecord>> GetInvoiceRecord(string id)
         {
@@ -42,7 +42,7 @@ namespace granthum_api.Controllers
             return invoiceRecord;
         }
 
-        // PUT: api/InvoiceRecords/5
+        // PUT: /api/InvoiceRecords/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutInvoiceRecord(string id, InvoiceRecord invoiceRecord)
@@ -50,7 +50,9 @@ namespace granthum_api.Controllers
             if (id != invoiceRecord.Id)
             {
                 return BadRequest();
+
             }
+            invoiceRecord.Created = (DateTime.Now.ToString("dddd, MMM dd yyyy"));
 
             _context.Entry(invoiceRecord).State = EntityState.Modified;
 
@@ -78,6 +80,9 @@ namespace granthum_api.Controllers
         [HttpPost]
         public async Task<ActionResult<InvoiceRecord>> PostInvoiceRecord(InvoiceRecord invoiceRecord)
         {
+
+            invoiceRecord.Created = (DateTime.Now.ToString("dddd, MMM dd yyyy"));
+
             _context.InvoiceRecords.Add(invoiceRecord);
             try
             {

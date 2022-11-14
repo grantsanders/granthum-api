@@ -8,7 +8,7 @@
         public string? Id { get; set; }
         public bool? ImportedSuccessfully { get; set; }
         public string? Name { get; set; }
-        public DateTime? Created { get; set; }
+        public string? Created { get; set; }
         public string? Note { get; set; }
 
     }
