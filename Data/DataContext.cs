@@ -1,32 +1,33 @@
 ﻿using granthum_api.Models;
+using Microsoft.Azure.Cosmos;
+
 namespace granthum_api.Data
 
 {
     public class DataContext : DbContext
     {
-        private static IConfiguration _configuration;
 
-        public DataContext() { }
-        public DataContext(DbContextOptions<DataContext> options, IConfiguration configuration) : base (options)
+        private readonly IConfiguration _configuration;
+        public DataContext(IConfiguration configuration) 
         {
             _configuration = configuration;
         }
 
-        public DbSet<InvoiceRecord> invoices { get; set; }
+        public DbSet<InvoiceRecord>? InvoiceRecords { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     => optionsBuilder.UseCosmos(
-        "AccountEndpoint = ***REMOVED***",
-        "granthum-cosmos");
-        
+        _configuration.GetConnectionString("dbConnect"),
+        "granthum-cosmo");
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<InvoiceRecord>()
-                .ToContainer("invoicesx")
-                .HasPartitionKey(r => r.Id);
-        
+                .ToContainer("InvoiceRecords")
+                .HasPartitionKey(i => i.Id);
         }
-    
+
+
     }
 }
 

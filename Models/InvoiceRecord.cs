@@ -6,10 +6,10 @@
 
         }
         public string? Id { get; set; }
-        public bool ImportedSuccessfully { get; set; }
-
+        public bool? ImportedSuccessfully { get; set; }
         public string? Name { get; set; }
+        public DateTime? Created { get; set; }
+        public string? Note { get; set; }
 
-        public string? time = DateTime.Now.ToString();
     }
 }
