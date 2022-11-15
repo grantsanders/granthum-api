@@ -25,14 +25,14 @@ namespace granthum_api.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Project>>> GetProject()
         {
-            return await _context.Project.ToListAsync();
+            return await _context.Projects.ToListAsync();
         }
 
         // GET: api/Projects/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Project>> GetProject(string id)
         {
-            var project = await _context.Project.FindAsync(id);
+            var project = await _context.Projects.FindAsync(id);
 
             if (project == null)
             {
@@ -78,7 +78,7 @@ namespace granthum_api.Controllers
         [HttpPost]
         public async Task<ActionResult<Project>> PostProject(Project project)
         {
-            _context.Project.Add(project);
+            _context.Projects.Add(project);
             try
             {
                 await _context.SaveChangesAsync();
@@ -102,13 +102,13 @@ namespace granthum_api.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProject(string id)
         {
-            var project = await _context.Project.FindAsync(id);
+            var project = await _context.Projects.FindAsync(id);
             if (project == null)
             {
                 return NotFound();
             }
 
-            _context.Project.Remove(project);
+            _context.Projects.Remove(project);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -116,7 +116,7 @@ namespace granthum_api.Controllers
 
         private bool ProjectExists(string id)
         {
-            return _context.Project.Any(e => e.Id == id);
+            return _context.Projects.Any(e => e.Id == id);
         }
     }
 }

@@ -20,7 +20,7 @@ namespace granthum_api.Data
         }
 
         public DbSet<InvoiceRecord>? InvoiceRecords { get; set; }
-
+        public DbSet<Project>? Projects { get; set; } 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     => optionsBuilder.UseCosmos(
         _configuration.GetConnectionString("dbConnect"),
