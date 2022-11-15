@@ -8,6 +8,12 @@ namespace granthum_api.Data
     {
 
         private readonly IConfiguration _configuration;
+
+        public DataContext()
+        {
+
+        }
+
         public DataContext(IConfiguration configuration) 
         {
             _configuration = configuration;
@@ -25,6 +31,10 @@ namespace granthum_api.Data
             modelBuilder.Entity<InvoiceRecord>()
                 .ToContainer("InvoiceRecords")
                 .HasPartitionKey(i => i.Id);
+
+            modelBuilder.Entity<Project>()
+                .ToContainer("Projects")
+                .HasPartitionKey(p => p.Id);
         }
 
 
