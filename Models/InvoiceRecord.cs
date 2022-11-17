@@ -7,7 +7,7 @@
         }
         public string? Id { get; set; }
         public bool? ImportedSuccessfully { get; set; }
-        public string? Name { get; set; }
+        public string? NumberOfInvoices { get; set; }
         public string? Created { get; set; }
         public string? Note { get; set; }
 
