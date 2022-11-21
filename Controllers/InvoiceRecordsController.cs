@@ -81,6 +81,7 @@ namespace granthum_api.Controllers
         public async Task<ActionResult<InvoiceRecord>> PostInvoiceRecord(InvoiceRecord invoiceRecord)
         {
 
+            invoiceRecord.Id = _context.InvoiceRecords.Count().ToString();
             invoiceRecord.Created = (DateTime.Now.ToString("dddd, MMM dd yyyy"));
 
             _context.InvoiceRecords.Add(invoiceRecord);
